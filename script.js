@@ -1,4 +1,5 @@
 const gridContainer = document.getElementById('gridContainer');
+const btn = document.querySelector('button');
 
 function newGrid (width, height=width) {
     
@@ -15,5 +16,20 @@ function newGrid (width, height=width) {
         }
     }
 }
+
+function replaceGrid () { // clear old grid and create a new one //
+    const size = Number(prompt('Grid Size:'));
+    if (!Number.isInteger(size) || size > 100 || size < 1) {
+        alert('Error, Please enter a vaild number between 1 and 100');
+        return;
+    }
+    
+    const boxes = document.querySelectorAll('#gridContainer div');
+
+    boxes.forEach(box => box.remove());
+    newGrid(size, size);
+}
+
+btn.addEventListener('click', replaceGrid);
 
 newGrid(16);
