@@ -1,10 +1,19 @@
-const grid = document.querySelector('.gridContainer');
+const gridContainer = document.getElementById('gridContainer');
 
-for (let i = 0; i < 256; i++) {
-    grid.appendChild(document.createElement('div'));
+function newGrid (width, height=width) {
+    
+    boxHeight = `${gridContainer.clientHeight / height}px`;
+    boxWidth = `${gridContainer.clientWidth / width}px`;
+    
+    for (let h = 0; h < height; h++) {
+        for (let w = 0; w < width; w++) {
+            const box = document.createElement('div');
+            box.style.height = boxHeight;
+            box.style.width = boxWidth;
+            gridContainer.appendChild(box);
+            box.addEventListener('mouseenter', e => e.target.classList.add('colored'));
+        }
+    }
 }
 
-const gridBoxes = document.querySelectorAll('.gridContainer div');
-gridBoxes.forEach(box => {
-    box.addEventListener('mouseenter', e => e.target.style.backgroundColor = 'black' )
-})
+newGrid(16);

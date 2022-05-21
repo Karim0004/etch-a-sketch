@@ -1,11 +1,10 @@
-.gridContainer {
+#gridContainer {
     display:flex;
     flex-wrap: wrap;
-    width: 400px;
-    height: 400px;
+    width: 600px;
+    height: 600px;
 }
 
-.gridContainer div {
-    height: 25px;
-    width: 25px;
+.colored {
+    background-color: brown;
 }
